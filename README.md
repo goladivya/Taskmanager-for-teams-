@@ -30,13 +30,14 @@ A task management web application built for **office teams** to help streamline 
 ---
 
 ## 📂 Folder Structure
-
+```
 ├── backend/ # Express API for auth, tasks
 ├── src/ # React frontend source files
 ├── public/ # Static files
 ├── .gitignore
 ├── firebase.json # Firebase Hosting config
 └── README.md # Project documentation
+```
 
 
 ---
