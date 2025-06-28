@@ -1,0 +1,62 @@
+.signupcont {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background: url("../assets/download.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.signup-container {
+  width: 350px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #f8fbe8; /* Light yellowish background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.signup-container h2 {
+  text-align: center;
+  color: #2d572c; /* dark green */
+  margin-bottom: 24px;
+}
+
+.signup-container input,
+.signup-container select {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 10px 0;
+  border: 1px solid #c1e1c1;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.signup-container input:focus,
+.signup-container select:focus {
+  border-color: #75b775; /* light green focus */
+  outline: none;
+}
+
+.signup-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #f9ca24; /* yellow */
+  color: #2d572c;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-container button:hover {
+  background-color: #f6b93b; /* darker yellow on hover */
+}
