@@ -10,7 +10,7 @@ export default function AssignedTasks() {
 
   const fetchAssignedTasks = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/assigned/${user.username}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/assigned/${user.username}`);
       setTasks(res.data);
 
       // Initialize editable state
@@ -30,7 +30,7 @@ export default function AssignedTasks() {
   const handleUpdate = async (taskId) => {
     const { status, remarks } = editedTasks[taskId];
     try {
-      await axios.patch(`http://localhost:5000/api/assigned/${taskId}`, {
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/assigned/${taskId}`, {
         status,
         remarks,
       });

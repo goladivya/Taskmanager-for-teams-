@@ -23,7 +23,7 @@ export default function OfficerTasks() {
 
   const fetchOfficers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/officers");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/officers`);
       setOfficers(res.data);
     } catch (err) {
       //console.error("Error fetching officers");
@@ -32,7 +32,7 @@ export default function OfficerTasks() {
 
   const fetchAssignedTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/assigned-tasks");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/assigned-tasks`);
       setTasks(res.data);
     } catch (err) {
       // console.error("Error fetching assigned tasks");
@@ -61,7 +61,7 @@ export default function OfficerTasks() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/add", {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/add`, {
         ...formData,
         createdBy,
       });
@@ -77,7 +77,7 @@ export default function OfficerTasks() {
 
   const handleDeadlineUpdate = async (taskId, updateDate) => {
     try {
-      await axios.patch(`http://localhost:5000/api/assigned/${taskId}`, {
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/assigned/${taskId}`, {
         deadline: updateDate,
       });
       toast.success("Deadline updated");
@@ -90,7 +90,7 @@ export default function OfficerTasks() {
   const handleDeleteTask = async (taskId) => {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/delete/${taskId}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/delete/${taskId}`);
       toast.success("Task deleted successfully");
       await fetchAssignedTasks();
     } catch (err) {

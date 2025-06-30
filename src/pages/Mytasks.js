@@ -19,7 +19,7 @@ export default function MyTasks() {
   const fetchTasks = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:5000/api/user/${user.username}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/${user.username}`);
       setTasks(res.data);
     } catch (err) {
       console.error("Error fetching tasks:", err);
@@ -32,7 +32,7 @@ export default function MyTasks() {
 
   const handleDeadlineUpdate = async (taskId, updateDate) => {
     try {
-      await axios.patch(`http://localhost:5000/api/assigned/${taskId}`, {
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/assigned/${taskId}`, {
         deadline: updateDate,
       });
       toast.success("Deadline updated");
@@ -49,7 +49,7 @@ export default function MyTasks() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/add", {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/add`, {
         title,
         deadline,
         remarks,
@@ -71,7 +71,7 @@ export default function MyTasks() {
 
   const handleStatusChange = async (taskId, newStatus) => {
     try {
-      await axios.patch(`http://localhost:5000/api/status/${taskId}`, { status: newStatus });
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/status/${taskId}`, { status: newStatus });
       setTasks(prev => prev.map(task => (task.id === taskId ? { ...task, status: newStatus } : task)));
     } catch (err) {
       console.error("Error updating status:", err.response || err);
@@ -83,7 +83,7 @@ export default function MyTasks() {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/delete/${taskId}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/delete/${taskId}`);
       setTasks(prev => prev.filter(task => task.id !== taskId));
     } catch (err) {
       console.error("Error deleting task", err.response || err);
@@ -101,7 +101,7 @@ export default function MyTasks() {
     };
 
     try {
-      await axios.patch(`http://localhost:5000/api/weekly/${taskId}`, newUpdate, {
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/weekly/${taskId}`, newUpdate, {
         headers: { "Content-Type": "application/json" },
       });
       setWeeklyInput(prev => ({ ...prev, [taskId]: "" }));

@@ -11,7 +11,7 @@ export default function DoneTasks() {
 
     const fetchDoneTasks = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/assigned/${user.username}/done`);
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/assigned/${user.username}/done`);
             setDoneTasks(res.data);
         } catch (err) {
             toast.error("Error fetching done tasks");
@@ -20,7 +20,7 @@ export default function DoneTasks() {
 
     const handleStatusChange = async (taskId, newStatus) => {
         try {
-            await axios.patch(`http://localhost:5000/api/status/${taskId}`, {
+            await axios.patch(`${process.env.REACT_APP_API_URL}/api/status/${taskId}`, {
                 status: newStatus
             });
             fetchDoneTasks();

@@ -27,7 +27,7 @@ export default function ForgotPassword() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/reset-password", {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/reset-password`, {
         username,
         newPassword,
       });
