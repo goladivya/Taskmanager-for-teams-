@@ -1,7 +1,7 @@
 # 📝 TaskManager for Teams
 
 A task management web application built for **office teams** to help streamline task assignment, tracking, and progress updates across **Heads of Departments (HODs)** and **Officials**.
-
+The site is available on https://taskmanager-for-teams.vercel.app 
 ---
 
 ##  Features
@@ -71,7 +71,7 @@ A task management web application built for **office teams** to help streamline 
 
 3. **Environment Setup**:
 ```bash
-Create a .env file .
+Create a .env file 
 
 ```
 
