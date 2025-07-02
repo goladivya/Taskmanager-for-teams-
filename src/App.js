@@ -1,6 +1,7 @@
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
+import { Analytics } from "@vercel/analytics/react"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Signup from './pages/signup';
 import LoginPage from './pages/login.js';
@@ -29,6 +30,7 @@ function App() {
         hideProgressBar={false}
         theme="colored"
       />
+       <Analytics />
     </div>
   );
 }
